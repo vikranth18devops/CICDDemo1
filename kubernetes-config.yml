@@ -3,8 +3,6 @@
   hosts: kubcluster
   become: true
   tasks:
-  - name: To swith to root user
-    command: sudo su
 
   - name: To update the packages
     command: sudo apt-get update
