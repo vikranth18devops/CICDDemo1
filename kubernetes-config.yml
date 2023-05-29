@@ -13,5 +13,7 @@
   - name: To start docker service
     command: sudo systemctl start docker
 
-  
+  - name: To setup kubernetes cluster
+    shell:  curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--write-kubeconfig=/home/ubuntu/.kube/config --write-kubeconfig-mode=644" sh -
+
   
