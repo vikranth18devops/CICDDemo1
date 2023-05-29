@@ -14,7 +14,7 @@
     command: sudo systemctl start docker
 
   - name: To setup kubernetes cluster
-    command: curl -sfL https://get.k3s.io | sh -
+    shell: curl -sfL https://get.k3s.io | sh -
 
   - name: To Create Test environment using namespace
     command: kubectl create namespace testenv
