@@ -1,0 +1,27 @@
+---
+- name: This Playbook to set-up Kubernetes using k3s
+  hosts: kubcluster
+  become: true
+  tasks:
+  - name: To swith to root user
+    command: sudo su
+
+  - name: To update the packages
+    command: sudo apt-get update
+
+  - name: To install docker
+    command: sudo apt install docker.io -y
+
+  - name: To start docker service
+    command: sudo systemctl start docker
+
+  - name: To setup kubernetes cluster
+    command: curl -sfL https://get.k3s.io | sh -
+
+  - name: To Create Test environment using namespace
+    command: kubectl create namespace testenv
+
+  - name: To Create Prod environment using namespace
+    command: kubectl create namespace prodenv
+
+
