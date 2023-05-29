@@ -16,10 +16,5 @@
   - name: To setup kubernetes cluster
     shell:  curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--write-kubeconfig=/home/ubuntu/.kube/config --write-kubeconfig-mode=644" sh -
 
-  - name: To Create Test environment using namespace
-    command: kubectl create namespace testenv
-
-  - name: To Create Prod environment using namespace
-    command: kubectl create namespace prodenv
-
+  
 
