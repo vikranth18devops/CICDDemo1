@@ -1,0 +1,15 @@
+---
+- name: This Playbook to deploy medicure on test-env in Kubernetes cluster
+  hosts: kubcluster
+  user: root
+  tasks:
+
+  - name: To update the packages
+    command: sudo apt-get update
+
+  - name: To switch to the test-env in cluster
+    command: kubectl config set-context --current --namespace=prodenv
+
+
+  - name: To run kubernetes deployment file
+    command: kubectl apply -f prod-deployment.yml

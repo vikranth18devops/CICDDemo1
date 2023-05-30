@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-deployment
+  labels:
+    app: medicure
+    namespace: testenv
+spec:
+  template:
+    metadata:
+      name: medicure-pod
+      labels:
+        app: medicure
+    spec:
+       containers:
+       - name: medicure-container
+         image: pavankasiboina/medicure:3.0
+  replicas: 3
+  selector:
+    matchLabels:
+      app: medicure
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: medicure-service
+spec:
+  type: NodePort
+  ports:
+  - targetPort: 9003
+    port: 80
+    nodePort: 30005
+  selector:
+    app: medicure
