@@ -7,5 +7,9 @@
   - name: To update the packages
     command: sudo apt-get update
 
+  - name: To switch to the test-env in cluster
+    command: kubectl config set-context --current --namespace=testenv
+
+
   - name: To run kubernetes deployment file
     command: kubectl apply -f test-deployment.yml
