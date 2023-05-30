@@ -1,5 +1,5 @@
 ---
-- name: This Playbook to deploy medicure on test-env in Kubernetes cluster
+- name: This Playbook to deploy medicure on Prod-Env in Kubernetes cluster
   hosts: kubcluster
   user: root
   tasks:
