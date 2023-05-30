@@ -32,6 +32,6 @@ spec:
   ports:
   - targetPort: 9003
     port: 80
-    nodePort: 30003
+    nodePort: 30004
   selector:
     app: medicure

@@ -111,6 +111,16 @@ resource "aws_security_group" "ass-sg" {
     ipv6_cidr_blocks = ["::/0"]
   }
 
+  ingress {
+    description      = "Test-env port"
+    from_port        = 30004
+    to_port          = 30004
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
+  }
+
+
 
 
   egress {
