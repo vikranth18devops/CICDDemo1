@@ -16,4 +16,15 @@
   - name: To setup kubernetes cluster
     shell:  curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--write-kubeconfig=/home/ubuntu/.kube/config --write-kubeconfig-mode=644" sh -
 
-  
+  - name: To stop and remove existing/running cadvisor
+    command: sudo docker rm -f cadvisor
+
+  - name: To install cadvisor
+    command:  sudo docker container run -itd --volume=/:/rootfs:ro --volume=/var/run:/var/run:rw --volume=/sys:/sys:ro --volume=/var/lib/docker:/var/lib/docker:ro --publish=8080:8080 --detach=true --privileged=true --name=cadvisor gcr.io/cadvisor/cadvisor:latest
+
+  - name: To stop and remove running/existing node-exporter
+    command: sudo docker rm -f node-exporter
+
+  - name: To install node exporter on kubernetes-cluster
+    command:  sudo docker run -itd -p 9100:9100 --name node-exporter bitnami/node-exporter:latest
+    
