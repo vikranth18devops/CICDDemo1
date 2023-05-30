@@ -1,0 +1,11 @@
+---
+- name: This Playbook to set-up Kubernetes using k3s
+  hosts: kubcluster
+  become: true
+  tasks:
+
+  - name: To update the packages
+    command: sudo apt-get update
+
+  - name: To run kubernetes deployment file
+    command: kubectl apply -f test-deployment.yml
