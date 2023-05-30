@@ -1,7 +1,7 @@
 ---
 - name: This Playbook to deploy medicure on test-env in Kubernetes cluster
   hosts: kubcluster
-  user: root
+  user: ansadmin
   tasks:
 
   - name: To update the packages
